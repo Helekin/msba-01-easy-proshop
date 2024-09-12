@@ -1,0 +1,57 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Proshop</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <form class="d-flex">
+          <input
+            class="form-control me-sm-2"
+            type="search"
+            placeholder="Search"
+          />
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+        <ul class="navbar-nav ms-auto pl-3">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Products</a
+            >
+            <div class="dropdown-menu">
+              <a routerLink="/category/1" class="dropdown-item">Books</a>
+              <a routerLink="/category/2" class="dropdown-item">Coffee Mugs</a>
+              <a class="dropdown-item" href="#">Mouse Pads</a>
+              <a class="dropdown-item" href="#">Luggage Tags</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fa fa-shopping-cart text-light" aria-hidden="true"></i>
+              <span class="badge pill bg-success" style="margin-left: 5px"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
