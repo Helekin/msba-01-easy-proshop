@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
+import { ProductCategory } from '../../common/product-category';
+import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css'
+  styleUrl: './navigation.component.css',
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
+  productCategories: ProductCategory[] = [];
 
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.listProductCategories();
+  }
+
+  listProductCategories() {
+    this.productService.getProductCategories().subscribe((data) => {
+      this.productCategories = data;
+    });
+  }
 }

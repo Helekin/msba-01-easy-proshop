@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
 const routes: Routes = [
