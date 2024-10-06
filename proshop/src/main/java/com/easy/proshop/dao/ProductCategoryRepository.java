@@ -8,6 +8,7 @@ import com.easy.proshop.entity.ProductCategory;
 
 @CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "productCategory", path = "product-category")
+
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Object> {
 
 }

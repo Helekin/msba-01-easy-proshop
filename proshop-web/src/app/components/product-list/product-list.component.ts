@@ -12,6 +12,7 @@ import { Product } from '../../common/product';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   currentCategoryId: number = 1;
+  searchMode: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -20,11 +21,29 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
-      this.listProducts();
+      this.getProducts();
     });
   }
 
-  listProducts() {
+  getProducts() {
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    if (this.searchMode) {
+      this.getProductsByKeyword();
+    } else {
+      this.getAllProducts();
+    }
+  }
+
+  getProductsByKeyword() {
+    const keyword: string = this.route.snapshot.paramMap.get('keyword')!;
+
+    this.productService.getProductsByKeyword(keyword).subscribe((data) => {
+      this.products = data;
+    });
+  }
+
+  getAllProducts() {
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if (hasCategoryId) {
@@ -34,7 +53,7 @@ export class ProductListComponent implements OnInit {
     }
 
     this.productService
-      .getProductList(this.currentCategoryId)
+      .getProducts(this.currentCategoryId)
       .subscribe((data) => (this.products = data));
   }
 }

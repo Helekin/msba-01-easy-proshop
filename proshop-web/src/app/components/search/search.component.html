@@ -1,0 +1,15 @@
+<div class="d-flex">
+  <input
+    #keyword
+    class="form-control me-sm-2"
+    type="search"
+    placeholder="Search"
+    (keyup.enter)="search(keyword.value)"
+  />
+  <button
+    class="btn btn-secondary my-2 my-sm-0"
+    (click)="search(keyword.value)"
+  >
+    Search
+  </button>
+</div>

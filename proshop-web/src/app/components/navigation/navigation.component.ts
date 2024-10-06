@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
   }
 
   listProductCategories() {
-    this.productService.getProductCategories().subscribe((data) => {
+    this.productService.getProductsByCategory().subscribe((data) => {
       this.productCategories = data;
     });
   }
